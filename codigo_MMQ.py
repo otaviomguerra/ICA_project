@@ -1,5 +1,5 @@
 #TC1 ICA - Deteccao de spam
-#Autor: Otavio Augusto Mota Guerra - 371849
+#Autor: Otavio Augusto Mota Guerra
 #Resolvendo pelo MMQ(metodo dos minimos quadrados)
 
 # Importando as bibliotecas
@@ -12,6 +12,7 @@ dataset = pd.read_csv("spambase.data")
 X = dataset.iloc[:, :57].values
 y = dataset.iloc[:, 57].values
 
+#Definindo vetores para guardar as informacoes para cada iteracao
 Acertos_positivos = []
 Acertos_negativos = []
 Acertos_global = []
@@ -79,6 +80,5 @@ Desvio_negativos = st.stdev(Acertos_negativos)
 #Calculo da media de Falso positivos e Falso Negativos
 Media_FP = sum(Numero_FP) / float(len(Numero_FP))
 Media_FN = sum(Numero_FN) / float(len(Numero_FN))
-
-#
+#Calculo da media de acerto global
 Media_global = sum(Acertos_global) / float(len(Acertos_global))
